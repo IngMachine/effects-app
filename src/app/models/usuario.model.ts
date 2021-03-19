@@ -22,3 +22,9 @@ export interface Support {
     url: string;
     text: string;
 }
+
+
+export interface UsuarioResponse {
+    data: Usuario;
+    support: Support;
+}

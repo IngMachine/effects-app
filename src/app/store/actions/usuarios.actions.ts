@@ -1,0 +1,29 @@
+import { Action } from '@ngrx/store';
+import { Usuario } from '../../models/usuario.model';
+
+
+export enum UsuariosTypesAction {
+    CARGAR_USUARIOS = '[Usuarios] Cargar Usuarios',
+    CARGAR_USUARIOS_FAIL = '[Usuarios] Cargar Usuarios FAIL',
+    CARGAR_USUARIOS_SUCCESS = '[Usuarios] Cargar Usuarios SUCCESS'
+}
+
+export class CargarUsuarios implements Action {
+    readonly type = UsuariosTypesAction.CARGAR_USUARIOS;
+}
+
+export class CargarUsuariosFail implements Action {
+    readonly type = UsuariosTypesAction.CARGAR_USUARIOS_FAIL;
+
+    constructor( public payload: any) { }
+}
+
+export class CargarUsuariosSuccess implements Action {
+    readonly type = UsuariosTypesAction.CARGAR_USUARIOS_SUCCESS;
+
+    constructor( public usuarios: Usuario[]) { }
+}
+
+export type usuariosAcciones = CargarUsuarios |
+                               CargarUsuariosFail |
+                               CargarUsuariosSuccess;
